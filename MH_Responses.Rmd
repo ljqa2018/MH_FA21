@@ -1,0 +1,26 @@
+---
+title: "MH_Responses"
+author: "Lauren Quesada"
+date: "11/16/2021"
+output: pdf_document
+---
+
+```{r}
+library(readxl)
+MH_Responses <- read_excel("~/Documents/MH_Responses.xlsx", 
+     col_types = c("date", "text", "text", 
+         "text", "numeric", "numeric", "text", 
+         "text", "skip", "skip", "skip"))
+View(MH_Responses)
+```
+
+```{r, error=FALSE}
+library(lubridate)
+library(tidyverse)
+library(dplyr)
+```
+
+```{r}
+MH_Responses %>%
+  ggplot(aes(TEA)) + geom_bar(aes(fill = Toppings))
+```
